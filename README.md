@@ -34,21 +34,27 @@ src/
 ├── lib/                # Funções utilitárias
 ├── models/             # Classes e estruturas orientadas a objetos
 ├── styles/             # Estilos globais e variáveis
-
+```
 
 ## 🛠 Como rodar o projeto localmente
 1. Clone o repositório:
 
+```bash
 git clone https://github.com/seu-usuario/gerenciamento-financeiro.git
 cd gerenciamento-financeiro
+```
 
 2. Instale as dependências:
 
+```bash
 npm install
+```
 
 3. Inicie o servidor de desenvolvimento:
 
+```bash
 npm run dev
+```
 
 ## ✨ Status
 🔧 Em desenvolvimento
