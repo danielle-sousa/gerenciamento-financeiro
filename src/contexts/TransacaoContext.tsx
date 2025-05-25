@@ -8,6 +8,7 @@ type TransacaoContextType = {
   transacoes: Transacao[];
   setTransacoes: (transacoes: Transacao[]) => void;
   atualizarTransacao: (transacaoAtualizada: Transacao) => void;
+  adicionarTransacao: (nova: Transacao) => void; 
 };
 
 const TransacaoContext = createContext<TransacaoContextType | undefined>(
@@ -23,9 +24,13 @@ export const TransacaoProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const adicionarTransacao = (nova: Transacao) => {
+  setTransacoes((prev) => [...prev, nova]);
+};
+
   return (
     <TransacaoContext.Provider
-      value={{ transacoes, setTransacoes, atualizarTransacao }}
+      value={{ transacoes, setTransacoes, atualizarTransacao, adicionarTransacao, }}
     >
       {children}
     </TransacaoContext.Provider>
