@@ -7,7 +7,7 @@ import { transacoesMock } from "@/data/transacoes";
 
 export default function HomePage() {
   const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesMock);
-  const [tipo, setTipo] = useState<TipoTransacao>("depósito");
+  const [tipo, setTipo] = useState<TipoTransacao>("depósito" as TipoTransacao);
   const [valor, setValor] = useState<number>(0);
   const [data, setData] = useState<string>("");
 
@@ -28,7 +28,7 @@ export default function HomePage() {
     setTransacoes([novaTransacao, ...transacoes]);
 
     // Limpar o formulário
-    setTipo("depósito");
+    setTipo("depósito" as TipoTransacao);
     setValor(0);
     setData("");
   };

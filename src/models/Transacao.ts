@@ -1,4 +1,8 @@
-export type TipoTransacao = 'depósito' | 'transferência' | 'pagamento';
+export enum TipoTransacao {
+  DEPOSITO = "depósito",
+  TRANSFERENCIA = "transferência",
+  PAGAMENTO = "pagamento",
+}
 
 export class Transacao {
   id: string;
@@ -15,5 +19,20 @@ export class Transacao {
 
   getDescricao(): string {
     return `${this.tipo} de R$ ${this.valor.toFixed(2)}`;
+  }
+
+  get valorFormatado(): string {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(this.valor);
+  }
+
+    get dataFormatada(): string {
+    return this.data.toLocaleDateString("pt-BR");
+  }
+
+   resumo(): string {
+    return `${this.tipo.toUpperCase()} de ${this.valorFormatado} em ${this.dataFormatada}`;
   }
 }

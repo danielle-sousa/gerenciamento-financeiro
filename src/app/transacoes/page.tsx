@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Transacao } from "@/models/Transacao";
 import { transacoesMock } from "@/data/transacoes";
 import Link from "next/link";
+import { useTransacoes } from "@/contexts/TransacaoContext";
 
 export default function ListagemTransacoesPage() {
-  const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesMock);
+  // const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesMock);
+  const { transacoes, setTransacoes } = useTransacoes();
 
   const excluirTransacao = (id: string) => {
     const confirmar = confirm("Tem certeza que deseja excluir?");
@@ -50,7 +52,7 @@ export default function ListagemTransacoesPage() {
                   Ver
                 </Link>
                 <Link
-                  href={`/editar/${t.id}`}
+                  href={`/transacoes/editar/${t.id}`}
                   className="text-yellow-600 underline"
                 >
                   Editar
