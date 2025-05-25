@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useTransacoes } from "@/contexts/TransacaoContext";
 
 export default function ListagemTransacoesPage() {
-  // const [transacoes, setTransacoes] = useState<Transacao[]>(transacoesMock);
   const { transacoes, setTransacoes } = useTransacoes();
 
   const excluirTransacao = (id: string) => {
