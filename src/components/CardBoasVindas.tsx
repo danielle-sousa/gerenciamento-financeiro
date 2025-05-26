@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
+import Card from "@/DesignSystem/Card";
 
 interface Props {
   saldo: number;
@@ -12,10 +13,11 @@ export function CardBoasVindas({ saldo }: Props) {
 
   return (
     <div className="bg-white rounded-lg shadow p-6 flex justify-between items-start">
-      <div>
-        <h2 className="text-xl font-bold">Bem-vindo de volta!</h2>
-        <p className="text-gray-500 mt-1">{dataFormatada}</p>
-      </div>
+      <Card className="mb-6">
+        <h2 className="text-lg font-semibold mb-2">Bem-vindo(a), Dani!</h2>
+        <p className="text-gray-600">Hoje é {dataFormatada}</p>
+      </Card>
+
       <div className="text-right">
         <p className="text-sm text-gray-500">Saldo Atual</p>
         <p

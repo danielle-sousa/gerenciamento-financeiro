@@ -16,7 +16,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "px-4 py-2 rounded-2xl text-sm font-semibold transition-colors duration-200";
+    "px-4 py-2 rounded-2xl text-sm font-semibold transition-colors duration-200 mt-4";
   const variants: Record<Variant, string> = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",
     secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",

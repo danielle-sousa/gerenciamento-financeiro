@@ -6,6 +6,7 @@ import { useTransacoes } from "@/contexts/TransacaoContext";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@/DesignSystem";
 import Input from "@/DesignSystem/Input";
+import Select from "@/DesignSystem/Select";
 
 export function FormNovaTransacao() {
   const { adicionarTransacao } = useTransacoes();
@@ -30,14 +31,15 @@ export function FormNovaTransacao() {
   return (
     <form onSubmit={handleSubmit}>
       <label className="block mb-2 font-medium">Tipo</label>
-      <select
+      <Select
         value={tipo}
         onChange={(e) => setTipo(e.target.value as TipoTransacao)}
-        className="w-full border rounded p-2 mb-4"
-      >
-        <option value="depósito">Depósito</option>
-        <option value="transferência">Transferência</option>
-      </select>
+        options={[
+          { label: "Depósito", value: "depósito" },
+          { label: "Transferência", value: "transferência" },
+          { label: "Pagamento", value: "pagamento" },
+        ]}
+      />
 
       <label className="block mb-2 font-medium">Valor</label>
       <Input

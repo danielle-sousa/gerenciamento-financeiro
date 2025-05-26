@@ -5,6 +5,7 @@ import { CardBoasVindas } from "@/components/CardBoasVindas";
 import { FormNovaTransacao } from "@/components/FormNovaTransacao";
 import { ExtratoTransacoes } from "@/components/ExtratoTransacoes";
 import { useTransacoes } from "@/contexts/TransacaoContext";
+import Card from "@/DesignSystem/Card";
 
 export default function HomePage() {
   const { transacoes } = useTransacoes();
@@ -15,10 +16,12 @@ export default function HomePage() {
       <SidebarMenu />
       <section className="w-3/5 p-6 space-y-6">
         <CardBoasVindas saldo={saldo} />
-        <div className="bg-white rounded-lg shadow p-6">
-          <h3 className="font-semibold mb-4 text-lg">Nova Transação</h3>
+
+        <Card>
+          <h3 className="text-lg font-bold mb-4">Nova Transação</h3>
           <FormNovaTransacao />
-        </div>
+        </Card>
+ 
       </section>
       <aside className="w-1/5 p-6">
         <ExtratoTransacoes />

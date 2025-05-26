@@ -6,6 +6,8 @@ import { Transacao, TipoTransacao } from "@/models/Transacao";
 import Link from "next/link";
 import { useTransacoes } from "@/contexts/TransacaoContext";
 import Input from "@/DesignSystem/Input";
+import Select from "@/DesignSystem/Select";
+import { Button } from "@/DesignSystem";
 
 export default function EditarTransacaoPage() {
   const params = useParams();
@@ -49,14 +51,15 @@ export default function EditarTransacaoPage() {
       <form onSubmit={handleEditar} className="space-y-4">
         <div>
           <label className="block mb-1">Tipo</label>
-          <select
-            value={tipo}
-            onChange={(e) => setTipo(e.target.value as TipoTransacao)}
-            className="w-full p-2 border rounded"
-          >
-            <option value="depósito">Depósito</option>
-            <option value="transferência">Transferência</option>
-          </select>
+            <Select
+                  value={tipo}
+                  onChange={(e) => setTipo(e.target.value as TipoTransacao)}
+                  options={[
+                    { label: "Depósito", value: "depósito" },
+                    { label: "Transferência", value: "transferência" },
+                    { label: "Pagamento", value: "pagamento" },
+                  ]}
+                />
         </div>
 
         <div>
@@ -81,12 +84,7 @@ export default function EditarTransacaoPage() {
           <Link href="/transacoes" className="text-blue-600 underline">
             ← Cancelar
           </Link>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded"
-          >
-            Salvar Alterações
-          </button>
+         <Button variant="primary">Adicionar</Button>
         </div>
       </form>
     </main>
