@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { Transacao, TipoTransacao } from "@/models/Transacao";
 import Link from "next/link";
 import { useTransacoes } from "@/contexts/TransacaoContext";
+import Input from "@/DesignSystem/Input";
 
 export default function EditarTransacaoPage() {
   const params = useParams();
@@ -60,23 +61,19 @@ export default function EditarTransacaoPage() {
 
         <div>
           <label className="block mb-1">Valor</label>
-          <input
-            type="number"
-            value={valor}
-            onChange={(e) => setValor(Number(e.target.value))}
-            className="w-full p-2 border rounded"
-            required
-          />
+         <Input
+          type="number"
+          value={valor}
+          onChange={(e) => setValor(Number(e.target.value))}
+        />
         </div>
 
         <div>
           <label className="block mb-1">Data</label>
-          <input
+          <Input
             type="date"
             value={data}
             onChange={(e) => setData(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
           />
         </div>
 

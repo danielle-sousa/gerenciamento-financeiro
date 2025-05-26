@@ -4,6 +4,8 @@ import { useState } from "react";
 import { TipoTransacao, Transacao } from "@/models/Transacao";
 import { useTransacoes } from "@/contexts/TransacaoContext";
 import { v4 as uuidv4 } from "uuid";
+import { Button } from "@/DesignSystem";
+import Input from "@/DesignSystem/Input";
 
 export function FormNovaTransacao() {
   const { adicionarTransacao } = useTransacoes();
@@ -38,19 +40,13 @@ export function FormNovaTransacao() {
       </select>
 
       <label className="block mb-2 font-medium">Valor</label>
-      <input
-        type="number"
-        value={valor}
-        onChange={(e) => setValor(Number(e.target.value))}
-        className="w-full border rounded p-2 mb-4"
+      <Input
+      type="number"
+      value={valor}
+      onChange={(e) => setValor(Number(e.target.value))}
       />
 
-      <button
-        type="submit"
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Adicionar
-      </button>
+      <Button variant="primary">Adicionar</Button>
     </form>
   );
 }
