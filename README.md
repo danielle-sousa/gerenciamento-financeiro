@@ -31,7 +31,8 @@ src/
 ├── app/                # Páginas e rotas do projeto (Next.js App Router)
 ├── components/         # Componentes reutilizáveis e UI
 ├── data/               # Dados mockados (simulados)
-├── lib/                # Funções utilitárias
+├── context/            # Dados salvos utilizando context
+├── DesignSystem/       # Design System da aplicação
 ├── models/             # Classes e estruturas orientadas a objetos
 ├── styles/             # Estilos globais e variáveis
 ```
