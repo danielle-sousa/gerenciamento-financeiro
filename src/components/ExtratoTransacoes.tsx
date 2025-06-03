@@ -5,7 +5,7 @@ export function ExtratoTransacoes() {
 
   return (
     <div className="bg-white rounded-lg shadow p-4">
-      <h3 className="font-semibold mb-4">Extrato</h3>
+      <h3 className="font-semibold mb-4 title-primary">Extrato</h3>
       <ul className="divide-y divide-gray-200 max-h-[400px] overflow-auto">
         {transacoes.slice(0, 5).map((t) => (
           <li

@@ -12,14 +12,17 @@ export function CardBoasVindas({ saldo }: Props) {
   });
 
   return (
-    <div className="bg-white rounded-lg shadow p-6 flex justify-between items-start">
-      <Card className="mb-6">
+    <div className="card-boas-vindas rounded-lg shadow p-6 flex justify-between items-start">
+      <div className="mb-6">
         <h2 className="text-lg font-semibold mb-2">Bem-vindo(a), Dani!</h2>
-        <p className="text-gray-600">Hoje é {dataFormatada}</p>
-      </Card>
+        <p className="text-white text-xs">Hoje é {dataFormatada}</p>
+      </div>
 
-      <div className="text-right">
-        <p className="text-sm text-gray-500">Saldo Atual</p>
+      <div className="text-left">
+        <p className="text-sm text-white-500">Saldo Atual</p>
+        <hr className="my-2 hr-secondary" />
+
+        <p className="text-white text-sm">Conta Corrente</p>
         <p
           className={`text-2xl font-bold ${
             saldo >= 0 ? "text-green-600" : "text-red-600"
