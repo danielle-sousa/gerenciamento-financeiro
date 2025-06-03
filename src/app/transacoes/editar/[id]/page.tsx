@@ -8,6 +8,10 @@ import { useTransacoes } from "@/contexts/TransacaoContext";
 import Input from "@/DesignSystem/Input";
 import Select from "@/DesignSystem/Select";
 import { Button } from "@/DesignSystem";
+import Card from "@/DesignSystem/Card";
+import { SidebarMenu } from "@/components/SidebarMenu";
+import { ExtratoTransacoes } from "@/components/ExtratoTransacoes";
+import Alert from "@/DesignSystem/Alert/Alert";
 
 export default function EditarTransacaoPage() {
   const params = useParams();
@@ -15,6 +19,12 @@ export default function EditarTransacaoPage() {
   const router = useRouter();
 
   const { transacoes, atualizarTransacao } = useTransacoes();
+
+   const [alerta, setAlerta] = useState<{
+    tipo: "success" | "error" | "info" | "warning";
+    titulo: string;
+    mensagem?: string;
+    } | null>(null);
 
   const transacaoExistente = transacoes.find((t) => t.id === id);
 
@@ -40,12 +50,34 @@ export default function EditarTransacaoPage() {
 
     atualizarTransacao(transacaoEditada);
 
-    alert("Transação atualizada com sucesso!");
-    router.push("/transacoes");
+    setAlerta({
+      tipo: "success",
+      titulo: "Editado com sucesso",
+      mensagem: "Transação atualizada com sucesso!",
+    });
+    
   };
 
   return (
-    <main className="p-6 max-w-xl mx-auto">
+    <main className="flex min-h-screen bg-gray-100">
+
+      <SidebarMenu />
+
+      <section className="w-3/5 p-6 space-y-6 card-transacoes">
+
+      <Card className="card-transacoes">
+
+        {alerta && (
+                <Alert
+                  type="success"
+                  title="Tudo certo!"
+                  message="A operação foi concluída com sucesso."
+                  dismissible
+                  autoDismiss
+                  dismissAfter={4000}
+              />
+              )}
+       
       <h1 className="text-2xl font-bold mb-4">Editar Transação</h1>
 
       <form onSubmit={handleEditar} className="space-y-4">
@@ -65,7 +97,7 @@ export default function EditarTransacaoPage() {
         <div>
           <label className="block mb-1">Valor</label>
          <Input
-          type="number"
+          type="text"
           value={valor}
           onChange={(e) => setValor(Number(e.target.value))}
         />
@@ -82,11 +114,18 @@ export default function EditarTransacaoPage() {
 
         <div className="flex justify-between items-center mt-6">
           <Link href="/transacoes" className="text-blue-600 underline">
-            ← Cancelar
+          <Button variant="primary">Cancelar</Button>
           </Link>
          <Button variant="primary">Adicionar</Button>
         </div>
       </form>
+
+      </Card>
+      </section>
+
+        <aside className="w-1/5 p-6">
+          <ExtratoTransacoes />
+      </aside>
     </main>
   );
 }
