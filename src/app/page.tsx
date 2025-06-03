@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="w-3/5 p-6 space-y-6">
         <CardBoasVindas saldo={saldo} />
 
-        <Card>
+        <Card className="card-nova-transacao">
           <h3 className="text-lg font-bold mb-4">Nova Transação</h3>
           <FormNovaTransacao />
         </Card>

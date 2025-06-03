@@ -61,3 +61,13 @@ li {
 .title-primary {
   color: var(--primary);
 }
+
+.title-secondary {
+  color: var(--secondary);
+}
+
+.card-nova-transacao, .card-transacoes {
+  background-color: var(--surface);
+  color: var(--primary);
+}
+

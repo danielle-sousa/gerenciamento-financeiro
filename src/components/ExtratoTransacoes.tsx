@@ -10,7 +10,7 @@ export function ExtratoTransacoes() {
         {transacoes.slice(0, 5).map((t) => (
           <li
             key={t.id}
-            className="py-2 flex justify-between text-sm cursor-pointer hover:bg-gray-100"
+            className="py-2 flex justify-between text-sm cursor-pointer text-gray-950 hover:bg-gray-100"
           >
             <span>{t.tipo}</span>
             <span className={t.valor >= 0 ? "text-green-600" : "text-red-600"}>
@@ -19,7 +19,7 @@ export function ExtratoTransacoes() {
           </li>
         ))}
         {transacoes.length === 0 && (
-          <li className="text-gray-500 text-center py-4">Nenhuma transação</li>
+          <li className="text-black text-center py-4">Nenhuma transação</li>
         )}
       </ul>
     </div>

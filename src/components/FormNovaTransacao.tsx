@@ -41,9 +41,9 @@ export function FormNovaTransacao() {
         ]}
       />
 
-      <label className="block mb-2 font-medium">Valor</label>
+      <label className="block mb-2 mt-6 font-medium">Valor</label>
       <Input
-      type="number"
+      type="text"
       value={valor}
       onChange={(e) => setValor(Number(e.target.value))}
       />
